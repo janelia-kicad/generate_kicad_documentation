@@ -1,0 +1,10 @@
+* Header                                                           :noexport:
+  #+MACRO: name modular_device_base_3x2
+  #+MACRO: version 1.2
+  #+MACRO: license Open-Source Hardware
+  #+AUTHOR: Peter Polidoro
+  #+EMAIL: peterpolidoro@gmail.com
+* Description
+  This board is the base of 3x2 format modular devices. It is a breakout board
+  for the microprocessor, with connections for power, communication, and top
+  boards.

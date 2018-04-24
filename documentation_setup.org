@@ -1,0 +1,56 @@
+# -*- org-confirm-babel-evaluate: nil -*-
+#+TITLE: documentation_setup
+#+INCLUDE: "./documentation_configuration.org::*Header"
+
+* File Information                                                 :noexport:
+  This file sets up documentation and prepares the repository for documentation
+  exporting.
+
+* File Usage                                                       :noexport:
+  1. Install dependencies:
+     - imagemagik #To generate images
+  2. Save files in Kicad:
+     - Plot schematic in ./schematic/ in pdf format.
+     - Generate bill of materials.
+     - Plot gerbers for all important layers in ./gerbers/ in gerber format, using
+       Protel filename extensions.
+     - Generate drill file in ./gerbers/ in gerber format.
+     - Print F.SilkS and B.SilkS in ./gerbers/ in pdf format.
+  3. Take photos of assembled circuit board:
+     - Take photo of top of board and save it to ./images/top.png
+     - Take photo of bottom of board and save it to ./images/bottom.png
+  4. Fill out information in documentation_configuration.org.
+  5. Export this file to any format to expand the macros and evaluate the source
+     blocks.
+
+* File Data                                                        :noexport:
+  #+TBLNAME: repository-info
+  | {{{name}}}    |
+  | {{{version}}} |
+
+* Schematic                                                        :noexport:
+  #+BEGIN_SRC sh :exports results :results output silent
+  rm -rf ./schematic/images/
+  mkdir ./schematic/images
+  convert -density 300 -depth 8 -quality 85 ./schematic/*.pdf ./schematic/images/schematic%02d.png
+  #+END_SRC
+
+* Gerbers                                                          :noexport:
+  #+HEADER: :var name=repository-info[0,0]
+  #+HEADER: :var version=repository-info[1,0]
+  #+BEGIN_SRC sh :exports results :results output silent
+    rm ./gerbers/*.zip
+    ZIP_FILENAME=./gerbers/${name}_v${version}.zip
+    zip $ZIP_FILENAME ./gerbers/*.g* ./gerbers/*.drl -q
+  #+END_SRC
+
+  #+BEGIN_SRC sh :exports results :results output silent
+  rm -rf ./gerbers/images/
+  mkdir ./gerbers/images
+  convert -density 300 -depth 8 -quality 85 -rotate "90" ./gerbers/*.pdf ./gerbers/images/gerbers%02d.png
+  #+END_SRC
+
+* Bill of Materials                                                :noexport:
+** PCB Parts
+** Additional Parts
+** Vendor Parts Lists

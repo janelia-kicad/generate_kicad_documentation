@@ -1,0 +1,83 @@
+# -*- org-confirm-babel-evaluate: nil -*-
+#+TITLE: documentation_export
+#+EXPORT_FILE_NAME: README
+#+OPTIONS: title:nil author:nil email:nil toc:t |:t ^:nil
+#+INCLUDE: "./documentation_configuration.org::*Header"
+
+* File Information                                                 :noexport:
+  This file generates documentation into the desired format when it is exported
+  by emacs org-mode.
+
+* File Usage                                                       :noexport:
+  1. Install dependencies:
+     - texlive-latex-extra #To generate pdf files.
+  2. Fill out information in documentation_configuration.org
+  3. Export documentation_setup.org to any format to evaluate source blocks.
+  4. Export this file to desired format.
+
+* Repository Information
+  - Name :: {{{name}}}
+  - Version :: {{{version}}}
+  - License :: {{{license}}}
+  - Author :: {{{author}}}
+  - Email :: {{{email}}}
+
+#+INCLUDE: "./documentation_configuration.org::*Description"
+* Images
+
+  #+BEGIN_SRC sh :exports results :results raw
+  TOP=./images/top.png
+  if [ -f $TOP ]; then
+    echo "[[file:$TOP]]\n"
+  fi
+  BOTTOM=./images/bottom.png
+  if [ -f $BOTTOM ]; then
+    echo "[[file:$BOTTOM]]\n"
+  fi
+  #+END_SRC
+* Schematic
+
+  #+BEGIN_SRC sh :exports results :results raw
+  for i in ./schematic/*.pdf; do
+    echo "[[file:$i][$i]]\n"
+  done
+  #+END_SRC
+  #+BEGIN_SRC sh :exports results :results raw
+  for i in ./schematic/images/*.png; do
+    echo "[[file:$i]]\n"
+  done
+  #+END_SRC
+* Gerbers
+
+  Save gerbers zip file and send to your favorite PCB manufacturer for
+  fabrication.
+
+  #+BEGIN_SRC sh :exports results :results raw
+    for i in ./gerbers/*.zip; do
+      echo "[[file:$i][$i]]\n"
+    done
+  #+END_SRC
+  #+BEGIN_SRC sh :exports results :results raw
+  for i in ./gerbers/images/*.png; do
+    echo "[[file:$i]]\n"
+  done
+  #+END_SRC
+* Bill of Materials
+** PCB Parts
+   [[./bom/bom_pcb.csv][./bom/bom_pcb.csv]]
+   #+BEGIN_SRC sh :exports results
+  cat ./bom/bom_pcb.csv
+   #+END_SRC
+
+** Additional Parts
+   [[./bom/bom_pcb_add.csv][./bom/bom_pcb_add.csv]]
+   #+INCLUDE: "./bom/bom_pcb_add.org"
+  #  #+BEGIN_SRC sh :exports results
+  # cat ./bom/bom_pcb_add.csv
+  #  #+END_SRC
+** Vendor Parts Lists
+   #+BEGIN_SRC sh :exports results :results raw
+    for i in ./bom/*order*.csv; do
+      echo "[[file:$i][$i]]\n"
+    done
+   #+END_SRC

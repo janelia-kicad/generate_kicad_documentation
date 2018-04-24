@@ -10,9 +10,11 @@
   projects.
 
 * Setup Kicad PCB Project for Documentation
-  1. Copy [[./project.org]] to the Kicad project directory and modify it for the
-     specific project.
-  2. In Kicad, save the following documentation files (all paths relative to
+  1. Copy [[./project.org]], [[./generate_support_documentation.org]], and
+     [[./export_documentation.org]] to the Kicad project directory.
+  2. Modify the copied version of project.org in the Kicad project directory to
+     contain the specific project details.
+  3. In Kicad, save the following documentation files (all paths relative to
      project directory):
      - Plot schematic in ./schematic/ in pdf format.
      - Generate bill of materials.
@@ -20,6 +22,6 @@
        Protel filename extensions.
      - Generate drill file in ./gerbers/ in gerber format.
      - Print F.SilkS and B.SilkS in ./gerbers/ in pdf format.
-  3. Take photos of assembled circuit board:
+  4. Take photos of assembled circuit board:
      - Take photo of top of board and save it to ./images/top.png
      - Take photo of bottom of board and save it to ./images/bottom.png

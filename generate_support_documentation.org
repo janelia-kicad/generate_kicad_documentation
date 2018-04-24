@@ -1,26 +1,15 @@
 # -*- org-confirm-babel-evaluate: nil -*-
-#+TITLE: documentation_setup
-#+INCLUDE: "./documentation_configuration.org::*Header"
+#+TITLE: generate_support_documentation
+#+INCLUDE: "./project.org::*Header"
 
 * File Information                                                 :noexport:
-  This file sets up documentation and prepares the repository for documentation
-  exporting.
+  This file generates supporting documentation files and prepares the repository
+  for documentation exporting.
 
 * File Usage                                                       :noexport:
   1. Install dependencies:
      - imagemagik #To generate images
-  2. Save files in Kicad:
-     - Plot schematic in ./schematic/ in pdf format.
-     - Generate bill of materials.
-     - Plot gerbers for all important layers in ./gerbers/ in gerber format, using
-       Protel filename extensions.
-     - Generate drill file in ./gerbers/ in gerber format.
-     - Print F.SilkS and B.SilkS in ./gerbers/ in pdf format.
-  3. Take photos of assembled circuit board:
-     - Take photo of top of board and save it to ./images/top.png
-     - Take photo of bottom of board and save it to ./images/bottom.png
-  4. Fill out information in documentation_configuration.org.
-  5. Export this file to any format to expand the macros and evaluate the source
+  2. Export this file to any format to expand the macros and evaluate the source
      blocks.
 
 * File Data                                                        :noexport:

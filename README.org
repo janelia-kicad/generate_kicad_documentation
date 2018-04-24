@@ -1,0 +1,25 @@
+#+TITLE: generate_kicad_documentation
+#+AUTHOR: Peter Polidoro
+#+EMAIL: peterpolidoro@gmail.com
+
+* Repository Information
+  - Author :: Peter Polidoro
+  - License :: BSD
+
+  The files in this repository generate the documentation for kicad pcb
+  projects.
+
+* Setup Kicad PCB Project for Documentation
+  1. Copy [[./project.org]] to the Kicad project directory and modify it for the
+     specific project.
+  2. In Kicad, save the following documentation files (all paths relative to
+     project directory):
+     - Plot schematic in ./schematic/ in pdf format.
+     - Generate bill of materials.
+     - Plot gerbers for all important layers in ./gerbers/ in gerber format, using
+       Protel filename extensions.
+     - Generate drill file in ./gerbers/ in gerber format.
+     - Print F.SilkS and B.SilkS in ./gerbers/ in pdf format.
+  3. Take photos of assembled circuit board:
+     - Take photo of top of board and save it to ./images/top.png
+     - Take photo of bottom of board and save it to ./images/bottom.png

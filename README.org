@@ -6,15 +6,21 @@
   - Author :: Peter Polidoro
   - License :: BSD
 
-  The files in this repository generate the documentation for kicad pcb
-  projects.
+  The files in this repository generate the documentation for kicad projects.
 
-* Setup Kicad PCB Project for Documentation
-  1. Copy [[./project.org]], [[./generate_support_documentation.org]], and
-     [[./export_documentation.org]] to the Kicad project directory.
-  2. Modify the copied version of project.org in the Kicad project directory to
-     contain the specific project details.
+* Setup Kicad Project for Documentation Generation
+  1. Add this repository as a submodule in the Kicad project repository:
+     #+BEGIN_SRC sh
+       git submodule add https://github.com/janelia-kicad/generate_kicad_documentation.git
+     #+END_SRC
+  2. Copy project.org from this repository submodule into the main Kicad project
+     repository directory:
+     #+BEGIN_SRC sh
+       cp ./generate_kicad_documentation/project.org ./
+     #+END_SRC
+  3. Modify the copied version of project.org in the Kicad project repository
+     directory to contain the specific project details.
 
 * Generate Documentation
-  1. Follow instrustions in generate_support_documentation.org.
+  1. Follow instructions in generate_support_documentation.org.
   2. Follow instrustions in export_documentation.org.

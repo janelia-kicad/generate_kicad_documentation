@@ -1,8 +1,8 @@
 # -*- org-confirm-babel-evaluate: nil -*-
 #+TITLE: documentation_export
-#+EXPORT_FILE_NAME: README
+#+EXPORT_FILE_NAME: ../README
 #+OPTIONS: title:nil author:nil email:nil toc:t |:t ^:nil
-#+INCLUDE: "./documentation_configuration.org::*Header"
+#+INCLUDE: "../project.org::*Header"
 
 * File Information                                                 :noexport:
   This file generates documentation into the desired format when it is exported
@@ -11,7 +11,7 @@
 * File Usage                                                       :noexport:
   1. Install dependencies:
      - texlive-latex-extra #To generate pdf files.
-  2. Fill out information in documentation_configuration.org
+  2. Fill out information in project.org
   3. Export documentation_setup.org to any format to evaluate source blocks.
   4. Export this file to desired format.
 
@@ -22,28 +22,28 @@
   - Author :: {{{author}}}
   - Email :: {{{email}}}
 
-#+INCLUDE: "./documentation_configuration.org::*Description"
+#+INCLUDE: "../project.org::*Description"
 * Images
 
   #+BEGIN_SRC sh :exports results :results raw
-  TOP=./images/top.png
+  TOP=../images/top.png
   if [ -f $TOP ]; then
-    echo "[[file:$TOP]]\n"
+    echo "[[file:./images/top.png]]\n"
   fi
-  BOTTOM=./images/bottom.png
+  BOTTOM=../images/bottom.png
   if [ -f $BOTTOM ]; then
-    echo "[[file:$BOTTOM]]\n"
+    echo "[[file:./images/bottom.png]]\n"
   fi
   #+END_SRC
 * Schematic
 
   #+BEGIN_SRC sh :exports results :results raw
-  for i in ./schematic/*.pdf; do
+  for i in ../schematic/*.pdf; do
     echo "[[file:$i][$i]]\n"
   done
   #+END_SRC
   #+BEGIN_SRC sh :exports results :results raw
-  for i in ./schematic/images/*.png; do
+  for i in ../schematic/images/*.png; do
     echo "[[file:$i]]\n"
   done
   #+END_SRC
@@ -53,31 +53,31 @@
   fabrication.
 
   #+BEGIN_SRC sh :exports results :results raw
-    for i in ./gerbers/*.zip; do
+    for i in ../gerbers/*.zip; do
       echo "[[file:$i][$i]]\n"
     done
   #+END_SRC
   #+BEGIN_SRC sh :exports results :results raw
-  for i in ./gerbers/images/*.png; do
+  for i in ../gerbers/images/*.png; do
     echo "[[file:$i]]\n"
   done
   #+END_SRC
 * Bill of Materials
 ** PCB Parts
-   [[./bom/bom_pcb.csv][./bom/bom_pcb.csv]]
+   [[./bom/bom_pcb.csv][../bom/bom_pcb.csv]]
    #+BEGIN_SRC sh :exports results
-  cat ./bom/bom_pcb.csv
+  cat ../bom/bom_pcb.csv
    #+END_SRC
 
 ** Additional Parts
-   [[./bom/bom_pcb_add.csv][./bom/bom_pcb_add.csv]]
-   #+INCLUDE: "./bom/bom_pcb_add.org"
+   [[./bom/bom_pcb_add.csv][../bom/bom_pcb_add.csv]]
+   #+INCLUDE: "../bom/bom_pcb_add.org"
   #  #+BEGIN_SRC sh :exports results
-  # cat ./bom/bom_pcb_add.csv
+  # cat ../bom/bom_pcb_add.csv
   #  #+END_SRC
 ** Vendor Parts Lists
    #+BEGIN_SRC sh :exports results :results raw
-    for i in ./bom/*order*.csv; do
+    for i in ../bom/*order*.csv; do
       echo "[[file:$i][$i]]\n"
     done
    #+END_SRC

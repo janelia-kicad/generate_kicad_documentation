@@ -55,13 +55,13 @@
   fabrication.
 
   #+BEGIN_SRC sh :exports results :results raw
-    for i in ../gerbers/*.zip; do
+    for FILEPATH in ../gerbers/*.zip; do
       FILENAME=${FILEPATH##*/}
       echo "[[file:./gerbers/$FILENAME][./gerbers/$FILENAME]]\n"
     done
   #+END_SRC
   #+BEGIN_SRC sh :exports results :results raw
-    for i in ../gerbers/images/*.png; do
+    for FILEPATH in ../gerbers/images/*.png; do
       FILENAME=${FILEPATH##*/}
       echo "[[file:./gerbers/images/$FILENAME]]\n"
     done
@@ -81,7 +81,7 @@
   #  #+END_SRC
 ** Vendor Parts Lists
    #+BEGIN_SRC sh :exports results :results raw
-    for i in ../bom/*parts.csv; do
+    for FILEPATH in ../bom/*parts.csv; do
       FILENAME=${FILEPATH##*/}
       echo "[[file:./bom/$FILENAME][./bom/$FILENAME]]\n"
     done

@@ -9,6 +9,15 @@
 * File Usage                                                       :noexport:
   1. Install dependencies:
      - imagemagik #To generate images
+       #+BEGIN_SRC sh :exports none
+         sudo apt-get install imagemagick
+       #+END_SRC
+     - kicad_bom #To generate bom csv parts files
+       #+BEGIN_SRC sh :exports none
+         python3 -m venv ~/vevns/kicad_bom
+         source ~/venvs/kicad_bom/bin/activate
+         pip install kicad_bom
+       #+END_SRC
   2. In Kicad, save the following documentation files (all paths relative to
      project directory):
      - Plot all pages of schematic in color to ../schematic/ in pdf format.
@@ -31,9 +40,9 @@
 
 * Schematic                                                        :noexport:
   #+BEGIN_SRC sh :exports results :results output silent
-  rm -rf ../schematic/images/
-  mkdir ../schematic/images
-  convert -density 300 -depth 8 -quality 85 ../schematic/*.pdf ../schematic/images/schematic%02d.png
+    rm -rf ../schematic/images/
+    mkdir ../schematic/images
+    convert -density 300 -depth 8 -quality 85 ../schematic/*.pdf ../schematic/images/schematic%02d.png
   #+END_SRC
 
 * Gerbers                                                          :noexport:
@@ -46,12 +55,17 @@
   #+END_SRC
 
   #+BEGIN_SRC sh :exports results :results output silent
-  rm -rf ../gerbers/images/
-  mkdir ../gerbers/images
-  convert -density 300 -depth 8 -quality 85 -rotate "90" ../gerbers/*.pdf ../gerbers/images/gerbers%02d.png
+    rm -rf ../gerbers/images/
+    mkdir ../gerbers/images
+    convert -density 300 -depth 8 -quality 85 -rotate "90" ../gerbers/*.pdf ../gerbers/images/gerbers%02d.png
   #+END_SRC
 
 * Bill of Materials                                                :noexport:
 ** PCB Parts
 ** Additional Parts
 ** Vendor Parts Lists
+   #+BEGIN_SRC python :exports results
+     from kicad_bom import KicadBom
+     kb = KicadBom()
+     kb.save_vendor_parts_csv_files()
+   #+END_SRC

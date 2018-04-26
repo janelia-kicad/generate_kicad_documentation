@@ -67,5 +67,5 @@
    #+BEGIN_SRC python :exports results
      from kicad_bom import KicadBom
      kb = KicadBom()
-     kb.save_vendor_parts_csv_files()
+     kb.save_vendor_parts_csv_files('../')
    #+END_SRC

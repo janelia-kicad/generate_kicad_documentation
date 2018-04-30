@@ -22,5 +22,5 @@
      directory to contain the specific project details.
 
 * Generate Documentation
-  1. Follow instructions in generate_support_documentation.org.
+  1. Follow instructions in schematic_gerbers_documentation.org.
   2. Follow instrustions in export_documentation.org.

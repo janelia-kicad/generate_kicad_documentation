@@ -22,7 +22,7 @@
   - Author :: {{{author}}}
   - Email :: {{{email}}}
 
-#+INCLUDE: "../project.org::*Description"
+  #+INCLUDE: "../project.org::*Description"
 * Images
 
   #+BEGIN_SRC sh :exports results :results raw
@@ -68,21 +68,21 @@
   #+END_SRC
 * Bill of Materials
 ** PCB Parts
-  #  [[./bom/bom_pcb.csv][./bom/bom_pcb.csv]]
-  #  #+BEGIN_SRC sh :exports results
-  # cat ../bom/bom_pcb.csv
-  #  #+END_SRC
+   #  [[./bom/bom_pcb.csv][./bom/bom_pcb.csv]]
+   #  #+BEGIN_SRC sh :exports results
+   # cat ../bom/bom_pcb.csv
+   #  #+END_SRC
 
 ** Additional Parts
    # [[./bom/bom_pcb_add.csv][../bom/bom_pcb_add.csv]]
    # #+INCLUDE: "../bom/bom_pcb_add.org"
-  #  #+BEGIN_SRC sh :exports results
-  # cat ../bom/bom_pcb_add.csv
-  #  #+END_SRC
+   #  #+BEGIN_SRC sh :exports results
+   # cat ../bom/bom_pcb_add.csv
+   #  #+END_SRC
 ** Vendor Parts Lists
    #+BEGIN_SRC sh :exports results :results raw
-    for FILEPATH in ../bom/*parts.csv; do
-      FILENAME=${FILEPATH##*/}
-      echo "[[file:./bom/$FILENAME][./bom/$FILENAME]]\n"
-    done
+     for FILEPATH in ../bom/*parts.csv; do
+       FILENAME=${FILEPATH##*/}
+       echo "[[file:./bom/$FILENAME][./bom/$FILENAME]]\n"
+     done
    #+END_SRC

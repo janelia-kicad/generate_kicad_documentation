@@ -1,6 +1,5 @@
 # -*- org-confirm-babel-evaluate: nil -*-
 #+TITLE: export_readme
-#+PROPERTY: dir ../
 #+EXPORT_FILE_NAME: ../README
 #+OPTIONS: title:nil author:nil email:nil toc:t |:t ^:nil
 #+INCLUDE: "../project.org::*Header"

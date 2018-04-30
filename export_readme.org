@@ -1,5 +1,5 @@
 # -*- org-confirm-babel-evaluate: nil -*-
-#+TITLE: documentation_export
+#+TITLE: export_readme
 #+EXPORT_FILE_NAME: ../README
 #+OPTIONS: title:nil author:nil email:nil toc:t |:t ^:nil
 #+INCLUDE: "../project.org::*Header"
@@ -68,10 +68,7 @@
   #+END_SRC
 * Bill of Materials
 ** PCB Parts
-   #  [[./bom/bom_pcb.csv][./bom/bom_pcb.csv]]
-   #  #+BEGIN_SRC sh :exports results
-   # cat ../bom/bom_pcb.csv
-   #  #+END_SRC
+   #+INCLUDE: "../bom/bom.org::pcb-parts"
 
 ** Additional Parts
    # [[./bom/bom_pcb_add.csv][../bom/bom_pcb_add.csv]]

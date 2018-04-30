@@ -30,7 +30,11 @@
   3. Take photos of assembled circuit board:
      - Take photo of top of board and save it to ../images/top.png
      - Take photo of bottom of board and save it to ../images/bottom.png
-  4. Export this file to any format to expand the macros and evaluate the source
+  4. Activate kicad_bom virtualenv
+     #+BEGIN_SRC sh
+       source ~/venvs/kicad_bom/bin/activate
+     #+END_SRC
+  5. Export this file to any format to expand the macros and evaluate the source
      blocks.
 
 * File Data                                                        :noexport:
@@ -62,7 +66,7 @@
 * Bill of Materials
 ** Vendor Parts
    #+BEGIN_SRC python :exports results
-      from kicad_bom import KicadBom
-      kb = KicadBom()
-      kb.save_vendor_parts_csv_files('../')
+     from kicad_bom import KicadBom
+     kb = KicadBom()
+     kb.save_vendor_parts_csv_files('../')
    #+END_SRC

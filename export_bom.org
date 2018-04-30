@@ -1,8 +1,8 @@
 * Header                                                           :noexport:
-# -*- org-confirm-babel-evaluate: nil -*-
-#+TITLE: generate_bom
-#+EXPORT_FILE_NAME: ../bom/bom
-#+OPTIONS: title:nil author:nil email:nil toc:f |:t ^:nil tags:nil
+  # -*- org-confirm-babel-evaluate: nil -*-
+  #+TITLE: export_bom
+  #+EXPORT_FILE_NAME: ../bom/bom
+  #+OPTIONS: title:nil author:nil email:nil toc:f |:t ^:nil tags:nil
 
 * File Information                                                 :noexport:
   Export this file to create the bom file.
@@ -18,14 +18,18 @@
   2. In Kicad, save the following documentation files (all paths relative to
      project directory):
      - Generate bill of materials.
-  3. Export this file to org format.
+  3. Activate kicad_bom virtualenv
+     #+BEGIN_SRC sh
+       source ~/venvs/kicad_bom/bin/activate
+     #+END_SRC
+  4. Export this file to org format.
 
 * Bill of Materials
-   #+NAME: pcb-parts
-   #+BEGIN_SRC python :exports results :results value table
-     from kicad_bom import KicadBom
-     kb = KicadBom()
-     bom = kb.get_bom_from_netlist('../')
-     bom.insert(1,None)
-     return bom
-   #+END_SRC
+  #+NAME: pcb-parts
+  #+BEGIN_SRC python :exports results :results value table
+    from kicad_bom import KicadBom
+    kb = KicadBom()
+    bom = kb.get_bom_from_netlist('../')
+    bom.insert(1,None)
+    return bom
+  #+END_SRC

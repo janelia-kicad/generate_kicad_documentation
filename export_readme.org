@@ -11,9 +11,10 @@
 * File Usage                                                       :noexport:
   1. Install dependencies:
      - texlive-latex-extra #To generate pdf files.
-  2. Fill out information in project.org
-  3. Export documentation_setup.org to any format to evaluate source blocks.
-  4. Export this file to desired format.
+       #+BEGIN_SRC sh :exports none
+         sudo apt-get install texlive-latex-extra
+       #+END_SRC
+  2. Export this file to desired format.
 
 * Repository Information
   - Name :: {{{name}}}

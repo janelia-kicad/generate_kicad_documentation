@@ -1,0 +1,34 @@
+# -*- org-confirm-babel-evaluate: nil -*-
+#+TITLE: bom_documentation
+#+INCLUDE: "../project.org::*Header"
+
+* File Information                                                 :noexport:
+  This file generates supporting documentation for the bom.
+
+* File Usage                                                       :noexport:
+  1. Install dependencies:
+     - kicad_bom #To generate bom csv parts files
+       #+BEGIN_SRC sh :exports none
+         python3 -m venv ~/vevns/kicad_bom
+         source ~/venvs/kicad_bom/bin/activate
+         pip install kicad_bom
+       #+END_SRC
+  2. In Kicad, save the following documentation files (all paths relative to
+     project directory):
+     - Generate bill of materials.
+  3. Export this file to org format.
+
+* File Data                                                        :noexport:
+  #+TBLNAME: repository-info
+  | {{{name}}}    |
+  | {{{version}}} |
+
+* Bill of Materials                                                :noexport:
+** PCB Parts
+** Additional Parts
+** Vendor Parts Lists
+   #+BEGIN_SRC python :exports results
+     from kicad_bom import KicadBom
+     kb = KicadBom()
+     kb.save_vendor_parts_csv_files('../')
+   #+END_SRC

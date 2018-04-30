@@ -1,5 +1,5 @@
+# -*- org-confirm-babel-evaluate: nil -*-
 * Header                                                           :noexport:
-  # -*- org-confirm-babel-evaluate: nil -*-
   #+TITLE: export_bom
   #+EXPORT_FILE_NAME: ../bom/bom
   #+OPTIONS: title:nil author:nil email:nil toc:f |:t ^:nil tags:nil

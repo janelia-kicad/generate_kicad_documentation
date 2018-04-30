@@ -1,9 +1,11 @@
+* Header                                                           :noexport:
 # -*- org-confirm-babel-evaluate: nil -*-
-#+TITLE: bom_documentation
-#+INCLUDE: "../project.org::*Header"
+#+TITLE: generate_bom
+#+EXPORT_FILE_NAME: ../bom/bom
+#+OPTIONS: title:nil author:nil email:nil toc:f |:t ^:nil tags:nil
 
 * File Information                                                 :noexport:
-  This file generates supporting documentation for the bom.
+  Export this file to create the bom file.
 
 * File Usage                                                       :noexport:
   1. Install dependencies:
@@ -18,26 +20,12 @@
      - Generate bill of materials.
   3. Export this file to org format.
 
-* File Data                                                        :noexport:
-  #+TBLNAME: repository-info
-  | {{{name}}}    |
-  | {{{version}}} |
-
 * Bill of Materials
-** PCB Parts
-
-   #+NAME: bom-table
-   #+BEGIN_SRC python :results value table
+   #+NAME: pcb-parts
+   #+BEGIN_SRC python :exports results :results value table
      from kicad_bom import KicadBom
      kb = KicadBom()
-     kb.get_bom_from_netlist('../')
-   #+END_SRC
-   #+CALL: bom-table() :colnames yes
-** Additional Parts
-** Vendor Parts Lists
-
-   #+BEGIN_SRC python :exports results
-     from kicad_bom import KicadBom
-     kb = KicadBom()
-     kb.save_vendor_parts_csv_files('../')
+     bom = kb.get_bom_from_netlist('../')
+     bom.insert(1,None)
+     return bom
    #+END_SRC

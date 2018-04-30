@@ -3,6 +3,6 @@
 !LICENSE
 !project.org
 !README.org
-!export_documentation.org
-!schematic_gerbers_documentation.org
-!bom_documentation.org
+!export_bom.org
+!export_readme.org
+!generate_supplementals.org

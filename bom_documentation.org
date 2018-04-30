@@ -23,10 +23,19 @@
   | {{{name}}}    |
   | {{{version}}} |
 
-* Bill of Materials                                                :noexport:
+* Bill of Materials
 ** PCB Parts
+
+   #+NAME: bom-table
+   #+BEGIN_SRC python :results value table
+     from kicad_bom import KicadBom
+     kb = KicadBom()
+     kb.get_bom_from_netlist('../')
+   #+END_SRC
+   #+CALL: bom-table() :colnames yes
 ** Additional Parts
 ** Vendor Parts Lists
+
    #+BEGIN_SRC python :exports results
      from kicad_bom import KicadBom
      kb = KicadBom()

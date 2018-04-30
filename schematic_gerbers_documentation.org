@@ -1,5 +1,6 @@
 # -*- org-confirm-babel-evaluate: nil -*-
 #+TITLE: schematic_gerbers_documentation
+#+EXPORT_FILE_NAME: tmp
 #+INCLUDE: "../project.org::*Header"
 
 * File Information                                                 :noexport:

@@ -4,6 +4,18 @@
 #+OPTIONS: title:nil author:nil email:nil toc:t |:t ^:nil
 #+INCLUDE: "../project.org::*Header"
 
+#+BEGIN_SRC emacs-lisp :exports results :results none :eval export
+  (make-variable-buffer-local 'org-export-filter-final-output-functions)
+  (defun my-double-blank-line-filter (output backend info)
+    (replace-regexp-in-string "^\n+" "\n" output))
+  (add-to-list 'org-export-filter-final-output-functions
+               'my-double-blank-line-filter)
+  (defun my-result-keyword-filter (output backend info)
+    (replace-regexp-in-string "^#[+]RESULTS:.*\n" "" output))
+  (add-to-list 'org-export-filter-final-output-functions
+               'my-result-keyword-filter)
+#+END_SRC
+
 * File Information                                                 :noexport:
   This file generates documentation into the desired format when it is exported
   by emacs org-mode.
@@ -17,6 +29,7 @@
   2. Export this file to desired format.
 
 * Repository Information
+
   - Name :: {{{name}}}
   - Version :: {{{version}}}
   - License :: {{{license}}}
@@ -24,6 +37,7 @@
   - Email :: {{{email}}}
 
   #+INCLUDE: "../project.org::*Description"
+
 * Images
 
   #+BEGIN_SRC sh :exports results :results raw
@@ -36,6 +50,7 @@
       echo "[[file:./images/bottom.png]]\n"
     fi
   #+END_SRC
+
 * Schematic
 
   #+BEGIN_SRC sh :exports results :results raw
@@ -50,6 +65,7 @@
       echo "[[file:./schematic/images/$FILENAME]]\n"
     done
   #+END_SRC
+
 * Gerbers
 
   Save gerbers zip file and send to your favorite PCB manufacturer for
@@ -67,17 +83,23 @@
       echo "[[file:./gerbers/images/$FILENAME]]\n"
     done
   #+END_SRC
+
 * Bill of Materials
+
 ** PCB Parts
+
    #+INCLUDE: "../bom/bom.org::pcb-parts"
 
 ** Additional Parts
+
    # [[./bom/bom_pcb_add.csv][../bom/bom_pcb_add.csv]]
    # #+INCLUDE: "../bom/bom_pcb_add.org"
    #  #+BEGIN_SRC sh :exports results
    # cat ../bom/bom_pcb_add.csv
    #  #+END_SRC
+
 ** Vendor Parts Lists
+
    #+BEGIN_SRC sh :exports results :results raw
      for FILEPATH in ../bom/*parts.csv; do
        FILENAME=${FILEPATH##*/}

@@ -14,6 +14,10 @@
     (replace-regexp-in-string "^#[+]RESULTS:.*\n" "" output))
   (add-to-list 'org-export-filter-final-output-functions
                'my-result-keyword-filter)
+  (defun my-export-filename-filter (output backend info)
+    (replace-regexp-in-string "^#[+]EXPORT_FILE_NAME:.*\n" "" output))
+  (add-to-list 'org-export-filter-final-output-functions
+               'my-export-filename-filter)
 #+END_SRC
 
 * File Information                                                 :noexport:

@@ -37,6 +37,7 @@
   - Name :: {{{name}}}
   - Version :: {{{version}}}
   - License :: {{{license}}}
+  - URL :: {{{url}}}
   - Author :: {{{author}}}
   - Email :: {{{email}}}
 

@@ -94,13 +94,9 @@
 
    #+INCLUDE: "../bom/bom.org::pcb-parts"
 
-** Additional Parts
+** Supplemental Parts
 
-   # [[./bom/bom_pcb_add.csv][../bom/bom_pcb_add.csv]]
-   # #+INCLUDE: "../bom/bom_pcb_add.org"
-   #  #+BEGIN_SRC sh :exports results
-   # cat ../bom/bom_pcb_add.csv
-   #  #+END_SRC
+   #+INCLUDE: "../bom/supplemental_bom.org::supplemental-parts"
 
 ** Vendor Parts Lists
 

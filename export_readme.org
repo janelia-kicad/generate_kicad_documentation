@@ -107,3 +107,6 @@
        echo "[[file:./bom/$FILENAME][./bom/$FILENAME]]\n"
      done
    #+END_SRC
+* Supplemental Documentation
+
+  #+INCLUDE: "../project.org::*Assembly Instructions"

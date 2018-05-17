@@ -26,7 +26,7 @@
        Protel filename extensions.
      - Generate drill file to ../gerbers/ in gerber format.
      - Print F.SilkS and B.SilkS, fit to page, no drill mark, 1 page per layer,
-       color, to ../gerbers/ in pdf format.
+       color, no Print frame ref, to ../gerbers/ in pdf format.
   3. Take photos of assembled circuit board:
      - Take photo of top of board and save it to ../images/top.png
      - Take photo of bottom of board and save it to ../images/bottom.png

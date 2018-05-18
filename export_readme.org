@@ -73,8 +73,7 @@
 
 * Gerbers
 
-  Save gerbers zip file and send to your favorite PCB manufacturer for
-  fabrication.
+  Send gerbers zip file to your favorite PCB manufacturer for fabrication.
 
   #+BEGIN_SRC sh :exports results :results raw
     for FILEPATH in ../gerbers/*.zip; do

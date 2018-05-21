@@ -4,7 +4,7 @@
 #+INCLUDE: "../project.org::*Header"
 
 * File Information                                                 :noexport:
-  This file generates supporting documentation for the schematic and gerbers.
+  This file generates supporting documentation for the schematic.
 
 * File Usage                                                       :noexport:
   1. Install dependencies:
@@ -22,14 +22,8 @@
      project directory):
      - Plot all pages of schematic in color to ../schematic/ in pdf format.
      - Generate bill of materials.
-     - Plot gerbers for all important layers to ../gerbers/ in gerber format, using
-       Protel filename extensions.
-     - Generate drill file to ../gerbers/ in gerber format.
-     - Print F.SilkS and B.SilkS, fit to page, no drill mark, 1 page per layer,
-       color, no Print frame ref, to ../gerbers/gerbers.pdf in pdf format.
-  3. Take photos of assembled circuit board:
-     - Take photo of top of board and save it to ../images/top.png
-     - Take photo of bottom of board and save it to ../images/bottom.png
+  3. Take photos:
+     - Take photos and save them to ../images/
   4. Activate kicad_bom virtualenv
      #+BEGIN_SRC sh
        source ~/venvs/kicad_bom/bin/activate
@@ -49,20 +43,6 @@
     convert -density 300 -depth 8 -quality 85 ../schematic/*.pdf ../schematic/images/schematic%02d.png
   #+END_SRC
 
-* Gerbers                                                          :noexport:
-  #+HEADER: :var name=repository-info[0,0]
-  #+HEADER: :var version=repository-info[1,0]
-  #+BEGIN_SRC sh :exports results :results output silent
-    rm ../gerbers/*.zip
-    ZIP_FILENAME=../gerbers/${name}_v${version}.zip
-    zip $ZIP_FILENAME ../gerbers/*.g* ../gerbers/*.drl -q
-  #+END_SRC
-
-  #+BEGIN_SRC sh :exports results :results output silent
-    rm -rf ../gerbers/images/
-    mkdir ../gerbers/images
-    convert -density 300 -depth 8 -quality 85 -rotate "90" ../gerbers/*.pdf ../gerbers/images/gerbers%02d.png
-  #+END_SRC
 * Bill of Materials
 ** Vendor Parts
    #+BEGIN_SRC python :exports results

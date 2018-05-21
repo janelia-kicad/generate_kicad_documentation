@@ -46,14 +46,10 @@
 * Images
 
   #+BEGIN_SRC sh :exports results :results raw
-    TOP=../images/top.png
-    if [ -f $TOP ]; then
-      echo "[[file:./images/top.png]]\n"
-    fi
-    BOTTOM=../images/bottom.png
-    if [ -f $BOTTOM ]; then
-      echo "[[file:./images/bottom.png]]\n"
-    fi
+    for FILEPATH in ../images/*.png; do
+      FILENAME=${FILEPATH##*/}
+      echo "[[file:./images/$FILENAME][./images/$FILENAME]]\n"
+    done
   #+END_SRC
 
 * Schematic
@@ -68,23 +64,6 @@
     for FILEPATH in ../schematic/images/*.png; do
       FILENAME=${FILEPATH##*/}
       echo "[[file:./schematic/images/$FILENAME]]\n"
-    done
-  #+END_SRC
-
-* Gerbers
-
-  Send gerbers zip file to your favorite PCB manufacturer for fabrication.
-
-  #+BEGIN_SRC sh :exports results :results raw
-    for FILEPATH in ../gerbers/*.zip; do
-      FILENAME=${FILEPATH##*/}
-      echo "[[file:./gerbers/$FILENAME][./gerbers/$FILENAME]]\n"
-    done
-  #+END_SRC
-  #+BEGIN_SRC sh :exports results :results raw
-    for FILEPATH in ../gerbers/images/*.png; do
-      FILENAME=${FILEPATH##*/}
-      echo "[[file:./gerbers/images/$FILENAME]]\n"
     done
   #+END_SRC
 

@@ -48,7 +48,7 @@
   #+BEGIN_SRC sh :exports results :results raw
     for FILEPATH in ../images/*.png; do
       FILENAME=${FILEPATH##*/}
-      echo "[[file:./images/$FILENAME][./images/$FILENAME]]\n"
+      echo "[[file:./images/$FILENAME]]\n"
     done
   #+END_SRC
 

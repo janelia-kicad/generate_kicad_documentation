@@ -11,6 +11,7 @@
      - imagemagik
        #+BEGIN_SRC sh :exports none
          sudo apt-get install imagemagick
+         sudo sed -i 's/policy domain="resource" name="memory" value="256MiB"/policy domain="resource" name="memory" value="2GiB"/' /etc/ImageMagick-6/policy.xml
        #+END_SRC
      - kicad_bom #To generate bom csv parts files
        #+BEGIN_SRC sh :exports none

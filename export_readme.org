@@ -71,16 +71,17 @@
     done
   #+END_SRC
 
+* Gerbers
+
   #+BEGIN_SRC sh :exports results :results raw
     GERBER_ZIP_COUNT=0;
     for FILEPATH in ../gerbers/*.zip; do
       FILENAME=${FILEPATH##*/}
       if [ "$FILENAME" != "*.zip" ]
       then
-        if [ "$GERBER_ZIP_COUNT" == "0" ]
+        if [ "$GERBER_ZIP_COUNT" -eq "0" ]
         then
-          echo "* Gerbers\n\n"
-          echo "Send gerbers zip file to your favorite PCB manufacturer for fabrication.\n\n"
+          echo "Send gerbers zip file to your favorite PCB manufacturer for fabrication.\n"
         fi
         GERBER_ZIP_COUNT=$((GERBER_ZIP_COUNT + 1))
         echo "[[file:./gerbers/$FILENAME][./gerbers/$FILENAME]]\n"

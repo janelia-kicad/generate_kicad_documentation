@@ -63,7 +63,7 @@
   #+BEGIN_SRC sh :exports results :results output silent
     rm -rf ../gerbers/images/
     mkdir ../gerbers/images
-    convert -density 300 -depth 8 -quality 85 -rotate "90" ../gerbers/*.pdf ../gerbers/images/gerbers%02d.png
+    convert -density 300 -depth 8 -quality 85 -rotate "-90" ../gerbers/*.pdf ../gerbers/images/gerbers%02d.png
   #+END_SRC
 * Bill of Materials
 ** Vendor Parts

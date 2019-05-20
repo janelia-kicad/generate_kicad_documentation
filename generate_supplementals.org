@@ -58,22 +58,25 @@
   #+END_SRC
 
 * Gerbers                                                          :noexport:
-  #+HEADER: :var name=repository-info[0,0]
-  #+HEADER: :var version=repository-info[1,0]
-  #+BEGIN_SRC sh :exports results :results output silent
-    rm ../gerbers/*.zip
-    ZIP_FILENAME=../gerbers/${name}_v${version}.zip
-    zip $ZIP_FILENAME ../gerbers/*.g* ../gerbers/*.drl ../gerbers/*.pos -q
-  #+END_SRC
-
   #+BEGIN_SRC sh :exports results :results output silent
     rm -rf ../gerbers/images/
     mkdir ../gerbers/images
     convert -density 300 -depth 8 -quality 85 -rotate "-90" ../gerbers/*.pdf ../gerbers/images/gerbers%02d.png
   #+END_SRC
-* Bill of Materials
+
+* Bill of Materials                                                :noexport:
   #+BEGIN_SRC python :exports results
     from kicad_bom import KicadBom
     kb = KicadBom()
     kb.save_all_csv_files('../')
+  #+END_SRC
+
+* Manufacturing Archive                                            :noexport:
+  #+HEADER: :var name=repository-info[0,0]
+  #+HEADER: :var version=repository-info[1,0]
+  #+BEGIN_SRC sh :exports results :results output silent
+    rm -rf ../manufacturing
+    mkdir -p ../manufacturing
+    ZIP_FILENAME=../manufacturing/${name}_v${version}.zip
+    zip $ZIP_FILENAME ../gerbers/*.g* ../gerbers/*.drl ../gerbers/*.pos ../bom/bom.csv -q
   #+END_SRC

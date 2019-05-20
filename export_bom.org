@@ -23,7 +23,6 @@
        source ~/venvs/kicad_bom/bin/activate
      #+END_SRC
   4. Export this file to org format.
-  5. Open ../bom/bom.org and export to desired format.
 
 * Bill of Materials
   #+NAME: pcb-parts

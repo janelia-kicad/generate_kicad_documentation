@@ -72,9 +72,8 @@
     convert -density 300 -depth 8 -quality 85 -rotate "-90" ../gerbers/*.pdf ../gerbers/images/gerbers%02d.png
   #+END_SRC
 * Bill of Materials
-** Vendor Parts
-   #+BEGIN_SRC python :exports results
-     from kicad_bom import KicadBom
-     kb = KicadBom()
-     kb.save_vendor_parts_csv_files('../')
-   #+END_SRC
+  #+BEGIN_SRC python :exports results
+    from kicad_bom import KicadBom
+    kb = KicadBom()
+    kb.save_all_csv_files('../')
+  #+END_SRC

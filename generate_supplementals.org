@@ -10,40 +10,47 @@
   1. Install dependencies:
      - imagemagick
        #+BEGIN_SRC sh :exports none
-         sudo apt-get install imagemagick
+         sudo apt install imagemagick
          sudo sed -i 's/policy domain="resource" name="memory" value="256MiB"/policy domain="resource" name="memory" value="2GiB"/' /etc/ImageMagick-6/policy.xml
          sudo sed -i 's/policy domain="coder" rights="none" pattern="PDF"/policy domain="coder" rights="read|write" pattern="PDF"/' /etc/ImageMagick-6/policy.xml
        #+END_SRC
      - kicad_bom #To generate bom csv parts files
        #+BEGIN_SRC sh :exports none
-         python3 -m venv ~/vevns/kicad_bom
+         sudo apt install python3-venv
+         mkdir ~/venvs
+         cd ~/venvs
+         python3 -m venv kicad_bom
          source ~/venvs/kicad_bom/bin/activate
-         pip install kicad_bom
+         pip install pip --upgrade
+         pip install kicad_bom --upgrade
        #+END_SRC
   2. In Kicad, save the following documentation files (all paths relative to
      project directory):
-     - Plot all pages of schematic in color to ../schematic/ in pdf format.
-     - Generate bill of materials.
-     - Plot gerbers for all important layers to ../gerbers/ in gerber format.
+     - Plot all pages of schematic in color to ./schematic/ in pdf format.
+     - Generate bill of materials with blank on Bill of Material command line.
+     - Plot gerbers for all important layers to ./gerbers/ in gerber format.
        Plot footprint values. Plot footprint references. Exclude PCB edge layer
        from other layers. Exclude pads from silkscreen. Use Protel filename
        extensions. Subtract soldermask from silkscreen. 4.6, unit mm.
-     - Generate drill file to ../gerbers/ in Excellon format. PTH and NPTH in
+     - Generate drill file to ./gerbers/ in Excellon format. PTH and NPTH in
        single file. Use route command. Absolute drill origin. Drill units
-       Inches. Keep zeros. Generate map file in gerber format.
+       Inches. Keep zeros.
+     - Generate map file in gerber format.
      - Generate Footprint positions: ASCII format, Inches units,
        single file for board.
-     - Print F.SilkS and B.SilkS, fit to page, no drill mark, 1 page per layer,
-       color, no Print frame ref, to ../gerbers/gerbers.pdf in pdf format.
+     - Plot F.SilkS and B.SilkS to ./gerbers/ in SVG format. Plot footprint
+       values, Plot footprint references, Exclude pads from silkscreen.
+     - Export SVG, F.SilkS and B.SilkS, Color, Board area only, Print board
+       edges, One file per layer, to ./gerbers/
   3. Take photos of assembled circuit board:
-     - Take photo of top of board and save it to ../images/top.png
-     - Take photo of bottom of board and save it to ../images/bottom.png
+     - Take photo of top of board and save it to images/top.png
+     - Take photo of bottom of board and save it to images/bottom.png
   4. Activate kicad_bom virtualenv
      #+BEGIN_SRC sh
        source ~/venvs/kicad_bom/bin/activate
      #+END_SRC
-  5. Export this file to any format to expand the macros and evaluate the source
-     blocks.
+  5. Export this file to Org as an Org file to expand the macros and evaluate
+     the source blocks.
 
 * File Data                                                        :noexport:
   #+TBLNAME: repository-info
@@ -61,7 +68,7 @@
   #+BEGIN_SRC sh :exports results :results output silent
     rm -rf ../gerbers/images/
     mkdir ../gerbers/images
-    convert -density 300 -depth 8 -quality 85 -rotate "-90" ../gerbers/*.pdf ../gerbers/images/gerbers%02d.png
+    convert -density 300 ../gerbers/*.svg ../gerbers/images/gerbers%02d.png
   #+END_SRC
 
 * Bill of Materials                                                :noexport:

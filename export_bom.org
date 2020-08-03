@@ -28,8 +28,8 @@
   #+NAME: pcb-parts
   #+BEGIN_SRC python :exports results :results value table
     from kicad_bom import KicadBom
-    kb = KicadBom()
-    bom = kb.get_bom_from_netlist('../')
+    kb = KicadBom('../')
+    bom = kb.get_bom()
     bom.insert(1,None)
     return bom
   #+END_SRC

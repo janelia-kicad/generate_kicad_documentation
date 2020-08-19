@@ -37,7 +37,7 @@
        single file. Use route command. Absolute drill origin. Drill units
        Inches. Keep zeros.
      - Generate map file in gerber format.
-     - Generate Footprint positions: ASCII format, Inches units,
+     - Generate Footprint positions: CSV format, Inches units,
        single file for board.
      - Export SVG, F.SilkS and B.SilkS, Color, Board area only, Print board
        edges, One file per layer, to ./gerbers/

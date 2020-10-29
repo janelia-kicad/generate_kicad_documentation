@@ -31,14 +31,13 @@
      - Plot gerbers for all important layers to ./gerbers/ in gerber format.
        Plot footprint values. Plot footprint references. Exclude PCB edge layer
        from other layers. Exclude pads from silkscreen. Use Protel filename
-
        extensions. Subtract soldermask from silkscreen. 4.6, unit mm.
      - Generate drill file to ./gerbers/ in Excellon format. PTH and NPTH in
        single file. Use route command. Absolute drill origin. Drill units
        Inches. Keep zeros.
      - Generate map file in gerber format.
-     - Generate Footprint positions: CSV format, Inches units,
-       single file for board.
+     - Fabrication Outputs: Footprint Position File - gerbers/ output directory,
+       CSV format, Inches units, single file for board.
      - Export SVG, F.SilkS and B.SilkS, Color, Board area only, Print board
        edges, One file per layer, to ./gerbers/
   3. Take photos of assembled circuit board:

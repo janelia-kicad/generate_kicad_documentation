@@ -59,14 +59,15 @@
   #+BEGIN_SRC sh :exports results :results output silent
     rm -rf ../schematic/images/
     mkdir ../schematic/images
-    convert -density 300 -depth 8 -quality 85 ../schematic/*.pdf ../schematic/images/schematic%02d.png
+    convert ../schematic/*.pdf -font Liberation-Sans -density 300 -depth 8 -quality 85 ../schematic/images/schematic%02d.png
   #+END_SRC
 
 * Gerbers                                                          :noexport:
   #+BEGIN_SRC sh :exports results :results output silent
     rm -rf ../gerbers/images/
     mkdir ../gerbers/images
-    convert -density 300 ../gerbers/*.svg ../gerbers/images/gerbers%02d.png
+    inkscape ../gerbers/*.svg --export-dpi=300 --export-type="png"
+    mv ../gerbers/*.png ../gerbers/images/
   #+END_SRC
 
 * Bill of Materials                                                :noexport:

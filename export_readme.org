@@ -25,11 +25,7 @@
   by emacs org-mode.
 
 * File Usage                                                       :noexport:
-  1. Install dependencies:
-     - texlive-latex-extra #To generate pdf files.
-       #+BEGIN_SRC sh :exports none
-         sudo apt-get install texlive-latex-extra
-       #+END_SRC
+  1. Setup dependencies using direnv and Guix
   2. Export this file to desired format.
 
 * Repository Information

@@ -3,27 +3,38 @@
 #+EMAIL: peter@polidoro.io
 
 * Repository Information
-  - Author :: Peter Polidoro
-  - License :: BSD
+- Author :: Peter Polidoro
+- License :: BSD
 
   The files in this repository generate the documentation for kicad projects.
 
 * Setup Kicad Project for Documentation Generation
-  1. Add this repository as a submodule in the Kicad project repository:
-     #+BEGIN_SRC sh
-       git submodule add https://github.com/janelia-kicad/generate_kicad_documentation.git
-     #+END_SRC
-  2. Copy project.org from this repository submodule into the main Kicad project
-     repository directory:
-     #+BEGIN_SRC sh
-       cp ./generate_kicad_documentation/project.org ./
-     #+END_SRC
-  3. Modify the copied version of project.org in the Kicad project repository
-     directory to contain the specific project details.
+
+1. Clone this repository as a directory in the Kicad project repository:
+
+   #+BEGIN_SRC sh
+
+git clone https://github.com/janelia-kicad/generate_kicad_documentation.git
+
+   #+END_SRC
+
+2. Copy project.org from this repository submodule into the main Kicad project
+   repository directory:
+
+   #+BEGIN_SRC sh
+
+cp ./generate_kicad_documentation/project.org ./
+
+   #+END_SRC
+
+3. Modify the copied version of project.org in the Kicad project repository
+   directory to contain the specific project details.
 
 * Generate Supplementals
-  Follow instrustions in generate_supplementals.org
+
+Follow instrustions in generate_supplementals.org
 
 * Export BOM and README
-  1. Follow instructions in export_bom.org
-  2. Follow instructions in export_readme.org
+
+1. Follow instructions in export_bom.org
+2. Follow instructions in export_readme.org

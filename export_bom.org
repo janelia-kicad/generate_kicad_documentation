@@ -8,21 +8,11 @@
   Export this file to create the bom file.
 
 * File Usage                                                       :noexport:
-  1. Install dependencies:
-     - kicad_bom #To generate bom csv parts files
-       #+BEGIN_SRC sh :exports none
-         python3 -m venv ~/vevns/kicad_bom
-         source ~/venvs/kicad_bom/bin/activate
-         pip install kicad_bom
-       #+END_SRC
+  1. Setup dependencies using direnv and Guix
   2. In Kicad, save the following documentation files (all paths relative to
      project directory):
      - Generate bill of materials.
-  3. Activate kicad_bom virtualenv
-     #+BEGIN_SRC sh
-       source ~/venvs/kicad_bom/bin/activate
-     #+END_SRC
-  4. Export this file to org format.
+  3. Export this file to org format.
 
 * Bill of Materials
   #+NAME: pcb-parts

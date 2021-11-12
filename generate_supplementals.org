@@ -7,23 +7,7 @@
   This file generates supporting documentation for the schematic and gerbers.
 
 * File Usage                                                       :noexport:
-  1. Install dependencies:
-     - imagemagick
-       #+BEGIN_SRC sh :exports none
-         sudo apt install imagemagick
-         sudo sed -i 's/policy domain="resource" name="memory" value="256MiB"/policy domain="resource" name="memory" value="2GiB"/' /etc/ImageMagick-6/policy.xml
-         sudo sed -i 's/policy domain="coder" rights="none" pattern="PDF"/policy domain="coder" rights="read|write" pattern="PDF"/' /etc/ImageMagick-6/policy.xml
-       #+END_SRC
-     - kicad_bom #To generate bom csv parts files
-       #+BEGIN_SRC sh :exports none
-         sudo apt install python3-venv
-         mkdir ~/venvs
-         cd ~/venvs
-         python3 -m venv kicad_bom
-         source ~/venvs/kicad_bom/bin/activate
-         pip install pip --upgrade
-         pip install kicad_bom --upgrade
-       #+END_SRC
+  1. Setup dependencies using direnv and Guix
   2. In Kicad, save the following documentation files (all paths relative to
      project directory):
      - Plot all pages of schematic in color to ./schematic/ in pdf format.
@@ -43,11 +27,7 @@
   3. Take photos of assembled circuit board:
      - Take photo of top of board and save it to images/top.png
      - Take photo of bottom of board and save it to images/bottom.png
-  4. Activate kicad_bom virtualenv
-     #+BEGIN_SRC sh
-       source ~/venvs/kicad_bom/bin/activate
-     #+END_SRC
-  5. Export this file to Org as an Org file to expand the macros and evaluate
+  4. Export this file to Org as an Org file to expand the macros and evaluate
      the source blocks.
 
 * File Data                                                        :noexport:

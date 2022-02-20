@@ -1,25 +1,30 @@
 # -*- org-confirm-babel-evaluate: nil -*-
 * Header                                                           :noexport:
-  #+TITLE: export_bom
-  #+EXPORT_FILE_NAME: ../bom/bom
-  #+OPTIONS: title:nil author:nil email:nil toc:f |:t ^:nil tags:nil
+#+TITLE: export_bom
+#+EXPORT_FILE_NAME: ../bom/bom
+#+OPTIONS: title:nil author:nil email:nil toc:f |:t ^:nil tags:nil
 
 * File Information                                                 :noexport:
-  Export this file to create the bom file.
+
+Export this file to create the bom file.
 
 * File Usage                                                       :noexport:
-  1. Setup dependencies using direnv and Guix
-  2. In Kicad, save the following documentation files (all paths relative to
-     project directory):
-     - Generate bill of materials.
-  3. Export this file to org format.
+
+1. Setup dependencies using direnv and Guix
+2. In Kicad, save the following documentation files (all paths relative to
+   project directory):
+   - Generate bill of materials.
+3. Export this file to org format.
 
 * Bill of Materials
-  #+NAME: pcb-parts
-  #+BEGIN_SRC python :exports results :results value table
-    from kicad_bom import KicadBom
-    kb = KicadBom('../')
-    bom = kb.get_bom()
-    bom.insert(1,None)
+
+#+NAME: pcb-parts
+#+BEGIN_SRC python :exports results :results value table
+
+from kicad_bom import KicadBom
+kb = KicadBom('../')
+bom = kb.get_bom()
+bom.insert(1,None)
     return bom
-  #+END_SRC
+
+#+END_SRC

@@ -12,23 +12,31 @@
 
 1. Clone this repository as a directory in the Kicad project repository:
 
-   #+BEGIN_SRC sh
+#+BEGIN_SRC sh
 
 git clone https://github.com/janelia-kicad/generate_kicad_documentation.git
 
-   #+END_SRC
+#+END_SRC
 
 2. Copy project.org from this repository submodule into the main Kicad project
    repository directory:
 
-   #+BEGIN_SRC sh
+#+BEGIN_SRC sh
 
 cp ./generate_kicad_documentation/project.org ./
 
-   #+END_SRC
+#+END_SRC
 
-3. Modify the copied version of project.org in the Kicad project repository
+1. Modify the copied version of project.org in the Kicad project repository
    directory to contain the specific project details.
+
+* Shell
+
+#+BEGIN_SRC sh
+
+guix time-machine -C channels.scm -- shell -m manifest-documentation.scm
+
+#+END_SRC
 
 * Generate Supplementals
 

@@ -5,117 +5,142 @@
 #+INCLUDE: "../project.org::*Header"
 
 #+BEGIN_SRC emacs-lisp :exports results :results none :eval export
-  (make-variable-buffer-local 'org-export-filter-final-output-functions)
-  (defun my-double-blank-line-filter (output backend info)
-    (replace-regexp-in-string "^\n+" "\n" output))
-  (add-to-list 'org-export-filter-final-output-functions
-               'my-double-blank-line-filter)
-  (defun my-result-keyword-filter (output backend info)
-    (replace-regexp-in-string "^#[+]RESULTS:.*\n" "" output))
-  (add-to-list 'org-export-filter-final-output-functions
-               'my-result-keyword-filter)
-  (defun my-export-filename-filter (output backend info)
-    (replace-regexp-in-string "^#[+]EXPORT_FILE_NAME:.*\n" "" output))
-  (add-to-list 'org-export-filter-final-output-functions
-               'my-export-filename-filter)
+(make-variable-buffer-local 'org-export-filter-final-output-functions)
+(defun my-double-blank-line-filter (output backend info)
+  (replace-regexp-in-string "^\n+" "\n" output))
+(add-to-list 'org-export-filter-final-output-functions
+             'my-double-blank-line-filter)
+(defun my-result-keyword-filter (output backend info)
+  (replace-regexp-in-string "^#[+]RESULTS:.*\n" "" output))
+(add-to-list 'org-export-filter-final-output-functions
+             'my-result-keyword-filter)
+(defun my-export-filename-filter (output backend info)
+  (replace-regexp-in-string "^#[+]EXPORT_FILE_NAME:.*\n" "" output))
+(add-to-list 'org-export-filter-final-output-functions
+             'my-export-filename-filter)
 #+END_SRC
 
 * File Information                                                 :noexport:
-  This file generates documentation into the desired format when it is exported
-  by emacs org-mode.
+This file generates documentation into the desired format when it is exported
+by emacs org-mode.
 
 * File Usage                                                       :noexport:
-  1. Setup dependencies using direnv and Guix
-  2. Export this file to desired format.
+1. Setup dependencies using direnv and Guix
+2. Export this file to desired format.
 
 * Repository Information
 
-  - Name :: {{{name}}}
-  - Version :: {{{version}}}
-  - License :: {{{license}}}
-  - URL :: {{{url}}}
-  - Author :: {{{author}}}
-  - Email :: {{{email}}}
+- Name :: {{{name}}}
+- Version :: {{{version}}}
+- License :: {{{license}}}
+- URL :: {{{url}}}
+- Author :: {{{author}}}
+- Email :: {{{email}}}
 
   #+INCLUDE: "../project.org::*Description"
 
 * Images
 
-  #+BEGIN_SRC sh :exports results :results raw
-    TOP=../images/top.png
-    if [ -f $TOP ]; then
-      echo "[[file:./images/top.png]]\n"
-    fi
-    BOTTOM=../images/bottom.png
-    if [ -f $BOTTOM ]; then
-      echo "[[file:./images/bottom.png]]\n"
-    fi
-  #+END_SRC
+#+BEGIN_SRC sh :exports results :results raw
+
+TOP=../images/top.png
+if [ -f $TOP ]; then
+    echo "[[file:./images/top.png]]\n"
+fi
+BOTTOM=../images/bottom.png
+if [ -f $BOTTOM ]; then
+    echo "[[file:./images/bottom.png]]\n"
+fi
+
+#+END_SRC
 
 * Schematic
 
-  #+BEGIN_SRC sh :exports results :results raw
-    for FILEPATH in ../schematic/*.pdf; do
-      FILENAME=${FILEPATH##*/}
-      echo "[[file:./schematic/$FILENAME][./schematic/$FILENAME]]\n"
-    done
-  #+END_SRC
-  #+BEGIN_SRC sh :exports results :results raw
-    for FILEPATH in ../schematic/images/*.png; do
-      FILENAME=${FILEPATH##*/}
-      echo "[[file:./schematic/images/$FILENAME]]\n"
-    done
-  #+END_SRC
+#+BEGIN_SRC sh :exports results :results raw
+
+for FILEPATH in ../schematic/*.pdf; do
+    FILENAME=${FILEPATH##*/}
+    echo "[[file:./schematic/$FILENAME][./schematic/$FILENAME]]\n"
+done
+#+END_SRC
+#+BEGIN_SRC sh :exports results :results raw
+for FILEPATH in ../schematic/images/*.png; do
+    FILENAME=${FILEPATH##*/}
+    echo "[[file:./schematic/images/$FILENAME]]\n"
+done
+
+#+END_SRC
 
 * Gerbers
 
-  #+BEGIN_SRC sh :exports results :results raw
-    for FILEPATH in ../gerbers/images/*.png; do
-      FILENAME=${FILEPATH##*/}
-      if [ "$FILENAME" != "*.png" ]
-      then
+#+BEGIN_SRC sh :exports results :results raw
+
+for FILEPATH in ../gerbers/images/*.png; do
+    FILENAME=${FILEPATH##*/}
+    if [ "$FILENAME" != "*.png" ]
+    then
         echo "[[file:./gerbers/images/$FILENAME]]\n"
-      fi
-    done
-  #+END_SRC
+    fi
+done
+
+#+END_SRC
 
 * Bill of Materials
 
 ** PCB Parts
 
-   #+INCLUDE: "../bom/bom.org::pcb-parts"
+#+INCLUDE: "../bom/bom.org::pcb-parts"
 
 ** Supplemental Parts
 
-   #+INCLUDE: "../bom/supplemental_bom.org::supplemental-parts"
+#+INCLUDE: "../bom/supplemental_bom.org::supplemental-parts"
 
 ** Vendor Parts Lists
 
-   #+BEGIN_SRC sh :exports results :results raw
-     for FILEPATH in ../bom/*parts.csv; do
-       FILENAME=${FILEPATH##*/}
-       echo "[[file:./bom/$FILENAME][./bom/$FILENAME]]\n"
-     done
-   #+END_SRC
+#+BEGIN_SRC sh :exports results :results raw
+
+for FILEPATH in ../bom/*parts.csv; do
+    FILENAME=${FILEPATH##*/}
+    echo "[[file:./bom/$FILENAME][./bom/$FILENAME]]\n"
+done
+
+#+END_SRC
 
 * Supplemental Documentation
 
-  #+INCLUDE: "../project.org::*Assembly Instructions"
+#+INCLUDE: "../project.org::*Assembly Instructions"
 
 * Manufacturing Archive
 
-  #+BEGIN_SRC sh :exports results :results raw
-    MANUFACTURING_ZIP_COUNT=0;
-    for FILEPATH in ../manufacturing/*.zip; do
-      FILENAME=${FILEPATH##*/}
-      if [ "$FILENAME" != "*.zip" ]
-      then
+#+BEGIN_SRC sh :exports results :results raw
+
+MANUFACTURING_ZIP_COUNT=0;
+for FILEPATH in ../manufacturing/*.zip; do
+    FILENAME=${FILEPATH##*/}
+    if [ "$FILENAME" != "*.zip" ]
+    then
         if [ "$MANUFACTURING_ZIP_COUNT" -eq "0" ]
         then
-          echo "Send manufacturing zip file to your favorite PCB manufacturer for fabrication.\n"
+            echo "Send manufacturing zip file to your favorite PCB manufacturer for fabrication.\n"
         fi
         MANUFACTURING_ZIP_COUNT=$((MANUFACTURING_ZIP_COUNT + 1))
         echo "[[file:./manufacturing/$FILENAME][./manufacturing/$FILENAME]]\n"
-      fi
-    done
-  #+END_SRC
+    fi
+done
+
+#+END_SRC
+
+* Development
+
+#+BEGIN_SRC sh :exports results :results raw
+
+cp ./channels.scm ../
+cp ./manifest.scm ../
+
+#+END_SRC
+
+#+BEGIN_SRC sh
+
+guix time-machine -C channels.scm -- shell -m manifest.scm
+
+#+END_SRC

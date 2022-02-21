@@ -134,8 +134,8 @@ done
 
 #+BEGIN_SRC sh :exports results :results raw
 
-cp ./channels.scm ../
-cp ./manifest.scm ../
+cp ./export/channels.scm ../
+cp ./export/manifest.scm ../
 
 #+END_SRC
 

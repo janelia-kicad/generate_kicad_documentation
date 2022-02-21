@@ -34,7 +34,7 @@ cp ./generate_kicad_documentation/project.org ./
 
 #+BEGIN_SRC sh
 
-guix time-machine -C channels.scm -- shell -m manifest-documentation.scm
+guix time-machine -C channels.scm -- shell --pure -m manifest.scm
 
 #+END_SRC
 

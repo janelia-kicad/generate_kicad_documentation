@@ -8,4 +8,5 @@
 !generate_supplementals.org
 !channels.scm
 !manifest.scm
-!.envrc
+!export.el
+!Makefile

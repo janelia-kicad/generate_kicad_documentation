@@ -1,5 +1,6 @@
 (specifications->manifest
- '("emacs"
+ '("make"
+   "emacs"
    "python"
    "python-kicad-bom"
    "imagemagick"

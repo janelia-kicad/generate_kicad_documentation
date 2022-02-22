@@ -132,13 +132,6 @@ done
 
 * Development
 
-#+BEGIN_SRC sh :exports results :results raw
-
-cp ./export/channels.scm ../
-cp ./export/manifest.scm ../
-
-#+END_SRC
-
 #+BEGIN_SRC sh
 
 guix time-machine -C channels.scm -- shell -m manifest.scm

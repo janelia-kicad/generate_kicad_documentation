@@ -6,8 +6,11 @@
    "emacs-org"
    "emacs-ox-gfm"
    "bash"
+   "git"
    "python"
    "python-kicad-bom"
    "imagemagick"
+   "inkscape"
+   "zip"
    "font-gnu-freefont"
    ))

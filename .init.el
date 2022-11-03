@@ -17,6 +17,9 @@
    (shell . t)
    (python . t)))
 
+(setq python-shell-completion-native-enable nil)
+(setq org-babel-python-command "python3")
+
 (setq make-backup-files nil)
 (setq org-confirm-babel-evaluate nil)
 

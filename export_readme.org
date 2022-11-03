@@ -42,7 +42,6 @@ by emacs org-mode.
 * Images
 
 #+BEGIN_SRC sh :exports results :results raw
-
 TOP=../images/top.png
 if [ -f $TOP ]; then
     echo "[[file:./images/top.png]]\n"
@@ -51,13 +50,11 @@ BOTTOM=../images/bottom.png
 if [ -f $BOTTOM ]; then
     echo "[[file:./images/bottom.png]]\n"
 fi
-
 #+END_SRC
 
 * Schematic
 
 #+BEGIN_SRC sh :exports results :results raw
-
 for FILEPATH in ../schematic/*.pdf; do
     FILENAME=${FILEPATH##*/}
     echo "[[file:./schematic/$FILENAME][./schematic/$FILENAME]]\n"
@@ -68,13 +65,11 @@ for FILEPATH in ../schematic/images/*.png; do
     FILENAME=${FILEPATH##*/}
     echo "[[file:./schematic/images/$FILENAME]]\n"
 done
-
 #+END_SRC
 
 * Gerbers
 
 #+BEGIN_SRC sh :exports results :results raw
-
 for FILEPATH in ../gerbers/images/*.png; do
     FILENAME=${FILEPATH##*/}
     if [ "$FILENAME" != "*.png" ]
@@ -82,7 +77,6 @@ for FILEPATH in ../gerbers/images/*.png; do
         echo "[[file:./gerbers/images/$FILENAME]]\n"
     fi
 done
-
 #+END_SRC
 
 * Bill of Materials
@@ -113,7 +107,6 @@ done
 * Manufacturing Archive
 
 #+BEGIN_SRC sh :exports results :results raw
-
 MANUFACTURING_ZIP_COUNT=0;
 for FILEPATH in ../manufacturing/*.zip; do
     FILENAME=${FILEPATH##*/}
@@ -127,13 +120,10 @@ for FILEPATH in ../manufacturing/*.zip; do
         echo "[[file:./manufacturing/$FILENAME][./manufacturing/$FILENAME]]\n"
     fi
 done
-
 #+END_SRC
 
 * Development
 
 #+BEGIN_SRC sh
-
-guix time-machine -C channels.scm -- shell -m manifest.scm
-
+guix time-machine -C .channels.scm -- shell -m .manifest.scm
 #+END_SRC

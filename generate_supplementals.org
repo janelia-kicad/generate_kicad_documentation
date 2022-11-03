@@ -39,32 +39,26 @@ This file generates supporting documentation for the schematic and gerbers.
 * Schematic                                                        :noexport:
 
 #+BEGIN_SRC sh :exports results :results output silent
-
 rm -rf ../schematic/images/
 mkdir ../schematic/images
 convert ../schematic/*.pdf -font Liberation-Sans -density 300 -depth 8 -quality 85 ../schematic/images/schematic%02d.png
-
 #+END_SRC
 
 * Gerbers                                                          :noexport:
 
 #+BEGIN_SRC sh :exports results :results output silent
-
 rm -rf ../gerbers/images/
 mkdir ../gerbers/images
 inkscape ../gerbers/*.svg --export-dpi=300 --export-type="png"
 mv ../gerbers/*.png ../gerbers/images/
-
 #+END_SRC
 
 * Bill of Materials                                                :noexport:
 
 #+BEGIN_SRC python :exports results
-
 from kicad_bom import KicadBom
 kb = KicadBom('../')
 kb.save_all_csv_files()
-
 #+END_SRC
 
 * Manufacturing Archive                                            :noexport:
@@ -72,10 +66,8 @@ kb.save_all_csv_files()
 #+HEADER: :var name=repository-info[0,0]
 #+HEADER: :var version=repository-info[1,0]
 #+BEGIN_SRC sh :exports results :results output silent
-
 rm -rf ../manufacturing
 mkdir -p ../manufacturing
 ZIP_FILENAME=../manufacturing/${name}_v${version}.zip
 zip $ZIP_FILENAME ../gerbers/*.g* ../gerbers/*.drl ../gerbers/*.pos ../bom/bom.csv -q
-
 #+END_SRC

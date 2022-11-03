@@ -11,6 +11,12 @@
 (eval-after-load "org"
   '(require 'ox-gfm nil t))
 
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((emacs-lisp . t)
+   (shell . t)
+   (python . t)))
+
 (setq make-backup-files nil)
 (setq org-confirm-babel-evaluate nil)
 

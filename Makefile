@@ -1,4 +1,4 @@
-GUIX-SHELL = guix time-machine -C .channels.scm -- shell
+GUIX-SHELL = guix time-machine -C .channels.scm -- shell --pure -m .manifest.scm
 
 edits:
 	$(GUIX-SHELL) -- sh -c "emacs"

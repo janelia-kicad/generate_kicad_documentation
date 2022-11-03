@@ -10,6 +10,7 @@
    "python"
    "python-kicad-bom"
    "imagemagick"
+   "graphicsmagick"
    "inkscape"
    "zip"
    "font-gnu-freefont"

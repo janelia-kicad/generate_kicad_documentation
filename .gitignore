@@ -10,3 +10,4 @@
 !manifest.scm
 !export.el
 !Makefile
+!.init.el

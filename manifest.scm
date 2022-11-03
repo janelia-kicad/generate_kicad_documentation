@@ -3,6 +3,8 @@
 (specifications->manifest
  '("make"
    "emacs"
+   "emacs-org"
+   "emacs-ox-gfm"
    "python"
    "python-kicad-bom"
    "imagemagick"

@@ -3,6 +3,12 @@
 (require 'org)
 
 (eval-after-load "org"
+  '(require 'ox-org nil t))
+
+(eval-after-load "org"
+  '(require 'ox-md nil t))
+
+(eval-after-load "org"
   '(require 'ox-gfm nil t))
 
 (setq make-backup-files nil)
